@@ -1,4 +1,4 @@
-var app = angular.module('starter.controllers', [])
+var app = angular.module('tally.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope) {
       // Form data for the login modal
@@ -50,7 +50,7 @@ var app = angular.module('starter.controllers', [])
 
 })
 
-.controller('CalculatorCtrl', function($scope, $rootScope) {
+.controller('CalculatorCtrl', function($scope, $rootScope, Documents) {
 
         $scope.newNumber = true;
 
@@ -62,17 +62,24 @@ var app = angular.module('starter.controllers', [])
 
         $scope.pendingValue = null;
 
+        $scope.activeDocument = null;
+
         $scope.calculateTotal = function() {
             $scope.setOperation();
-            $scope.runningTotal = 0;
+
+            $rootScope.output = $scope.getTotal();
+        };
+
+        $scope.getTotal = function() {
+            var runningTotal = 0;
             for(var i in $rootScope.items) {
                 if($rootScope.items[i].operator == '-') {
-                    $scope.runningTotal -= $rootScope.items[i].amount;
+                    runningTotal -= $rootScope.items[i].amount;
                 } else {
-                    $scope.runningTotal += $rootScope.items[i].amount;
+                    runningTotal += $rootScope.items[i].amount;
                 }
             }
-            $rootScope.output = $scope.runningTotal;
+            return runningTotal;
         };
 
         $scope.updateOutput = function (btn) {
@@ -96,6 +103,22 @@ var app = angular.module('starter.controllers', [])
             }
             clearLast();
             $scope.operationToken = op;
+
+        };
+
+        $scope.saveDocument = function() {
+
+            $scope.activeDocument = Documents.create({
+                document_title: 'test',
+                total: $scope.getTotal(),
+                items: JSON.stringify($scope.items)
+            }).then(function(r){
+
+            }, function(err) {
+                
+            });
+
+            console.log('$scope.activeDocument',$scope.activeDocument)
 
         };
 
