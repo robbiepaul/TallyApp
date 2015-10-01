@@ -1,0 +1,47 @@
+<ion-view title="Tally">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="clearItems()">Clear</button>
+    </ion-nav-buttons>
+  <ion-content class="has-header" scroll="false">
+    <div class="wrapper" ng-app ng-controller="CalculatorCtrl">
+        <div id="TotalDisplay">
+            <span class="operationToken">{{operationToken}}</span>
+            {{output | number}}
+        </div>
+        <div id="ItemsDisplay">
+            <ul>
+                <li ng-repeat="item in items | reverse" ><span class="operationToken">{{item.operator}}</span>{{item.amount | number}}</li>
+            </ul>
+        </div>
+        <div id="ButtonsArea">
+
+            <div class="btn-row">
+                <div class="btn" ng-click='updateOutput(7)'>7</div>
+                <div class="btn" ng-click='updateOutput(8)'>8</div>
+                <div class="btn" ng-click='updateOutput(9)'>9</div>
+                <div class="btn">ok</div>
+            </div>
+            <div class="btn-row">
+                <div class="btn" ng-click='updateOutput(4)'>4</div>
+                <div class="btn" ng-click='updateOutput(5)'>5</div>
+                <div class="btn" ng-click='updateOutput(6)'>6</div>
+                <div class="btn" ng-click="setOperation('+')">+</div>
+            </div>
+            <div class="btn-row">
+                <div class="btn" ng-click='updateOutput(1)'>1</div>
+                <div class="btn" ng-click='updateOutput(2)'>2</div>
+                <div class="btn" ng-click='updateOutput(3)'>3</div>
+                <div class="btn" ng-click="setOperation('-')">-</div>
+            </div>
+            <div class="btn-row">
+                <div class="btn btn-double" ng-click='updateOutput(0)'>0</div>
+                <div class="btn" ng-click='updateOutput(".")'>.</div>
+                <div class="btn" ng-click="calculateTotal()">=</div>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

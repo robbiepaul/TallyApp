@@ -1,0 +1,62 @@
+/* Empty. Add your own CSS if you like */
+.btn-row {
+    width:100%;
+}
+.btn {
+    float:left;
+    width:25%;
+    height:90px;
+    line-height: 90px;
+    display: inline-block;
+    padding:0;
+    margin:0;
+    text-align: center;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+.btn-double {
+    width:50%;
+}
+#ButtonsArea {
+
+    border-top: 1px solid #eee;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+
+
+}
+.operationToken {
+    color:#ccc;
+    padding-right:10px;
+}
+#TotalDisplay {
+    height:80px;
+    line-height: 80px;
+    font-size: 3em;
+    text-align: right;
+    display: block;
+    background-color: #eee;
+}
+#ItemsDisplay {
+    height:100%;
+    display: block;
+    font-size: 2.2em;
+    text-align: right;
+    background-color: #f6f6f6;
+    overflow: auto;
+
+}
+#ItemsDisplay ul li {
+    padding: 6px 10px;
+}
+
+.wrapper {
+    position: absolute;
+    height:100%;
+    width:100%;
+    display: block;
+}
