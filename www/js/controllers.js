@@ -1,6 +1,6 @@
 var app = angular.module('tally.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, Documents, $ionicPlatform) {
       // Form data for the login modal
       $scope.loginData = {};
 
@@ -8,6 +8,18 @@ var app = angular.module('tally.controllers', [])
 
 
         $rootScope.output = "0";
+
+
+
+
+
+        $ionicPlatform.ready(function(){
+            $rootScope.documents  = Documents.all().then(function(documents){
+                $rootScope.documents = documents;
+                console.log(documents);
+            });
+
+        });
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -35,15 +47,8 @@ var app = angular.module('tally.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('HistoryCtrl', function($scope) {
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

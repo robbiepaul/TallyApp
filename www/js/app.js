@@ -50,7 +50,7 @@ angular.module('tally', ['ionic', 'tally.controllers', 'tally.services'])
       views: {
         'menuContent' :{
           templateUrl: "templates/history.html",
-          controller: 'PlaylistsCtrl'
+          controller: 'HistoryCtrl'
         }
       }
     })

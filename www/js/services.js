@@ -108,3 +108,15 @@ services.factory('DB', function($q, DB_CONFIG, $rootScope) {
 
         return self;
     });
+
+services.filter('checkmark', function() {
+    return function(input) {
+        return input ? '\u2713' : '\u2718';
+    };
+});
+
+services.filter('dateTime', function() {
+    return function(input) {
+        return moment(input).format('MMMM Do YYYY, h:mm:ss a');
+    };
+}); //
