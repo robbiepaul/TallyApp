@@ -1,4 +1,4 @@
-<ion-view title="Tally">
+<ion-view title="TallyRoll">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
@@ -12,17 +12,18 @@
             {{output | number}}
         </div>
         <div id="ItemsDisplay">
+            <div class="topShadow"></div>
             <ul>
                 <li ng-repeat="item in items | reverse" ><span class="operationToken">{{item.operator}}</span>{{item.amount | number}}</li>
             </ul>
         </div>
         <div id="ButtonsArea">
-
+            <div class="shadow"></div>
             <div class="btn-row">
                 <div class="btn" ng-click='updateOutput(7)'>7</div>
                 <div class="btn" ng-click='updateOutput(8)'>8</div>
                 <div class="btn" ng-click='updateOutput(9)'>9</div>
-                <div class="btn" ng-click="saveDocument()">ok</div>
+                <div class="btn btn-green" ng-click="saveDocument()"><i class="icon ion-checkmark-circled"></i></div>
             </div>
             <div class="btn-row">
                 <div class="btn" ng-click='updateOutput(4)'>4</div>
