@@ -3,7 +3,8 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
     <ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="clearItems()">Clear</button>
+        <button class="button button-icon ion-more" ng-click="popover.show($event)">
+        </button>
     </ion-nav-buttons>
   <ion-content class="has-header" scroll="false">
     <div class="wrapper" ng-app ng-controller="CalculatorCtrl">
@@ -23,24 +24,26 @@
                 <div class="btn" ng-click='updateOutput(7)'>7</div>
                 <div class="btn" ng-click='updateOutput(8)'>8</div>
                 <div class="btn" ng-click='updateOutput(9)'>9</div>
-                <div class="btn btn-green" ng-click="saveDocument()"><i class="icon ion-checkmark-circled"></i></div>
+                <div class="btn btn-green btn-darker" ng-click="saveDocument()"><i class="icon ion-checkmark-circled"></i></div>
             </div>
             <div class="btn-row">
                 <div class="btn" ng-click='updateOutput(4)'>4</div>
                 <div class="btn" ng-click='updateOutput(5)'>5</div>
                 <div class="btn" ng-click='updateOutput(6)'>6</div>
-                <div class="btn" ng-click="setOperation('+')">+</div>
+                <div class="btn btn-darker" ng-click="clearOutput()">c</div>
+
             </div>
             <div class="btn-row">
                 <div class="btn" ng-click='updateOutput(1)'>1</div>
                 <div class="btn" ng-click='updateOutput(2)'>2</div>
                 <div class="btn" ng-click='updateOutput(3)'>3</div>
-                <div class="btn" ng-click="setOperation('-')">-</div>
+                <div class="btn btn-darker" ng-click="setOperation('+')">+</div>
             </div>
             <div class="btn-row">
-                <div class="btn btn-double" ng-click='updateOutput(0)'>0</div>
+                <div class="btn" ng-click='updateOutput(0)'>0</div>
                 <div class="btn" ng-click='updateOutput(".")'>.</div>
-                <div class="btn" ng-click="calculateTotal()">=</div>
+                <div class="btn btn-dark" ng-click="calculateTotal()">=</div>
+                <div class="btn btn-darker" ng-click="setOperation('-')">-</div>
             </div>
         </div>
     </div>

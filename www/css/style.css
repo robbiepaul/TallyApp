@@ -17,26 +17,32 @@
     background-color:#3E484D;
     color:rgba(255,255,255,0.8);
 }
+.btn-darker {
+    background-color: #2D3031;
+}
+.btn-dark {
+    background-color: #4d565b;
+}
 .btn:active {
     background: rgba(255,255,255,0.8);
     color: #3E484D;
 }
+
 .btn-green {
     color:#6fd686;
 }
+
 .btn-double {
     width:50%;
 }
-#ButtonsArea {
 
+#ButtonsArea {
     border-top: 1px solid rgba(255,255,255,0.2);
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
     z-index: 2;
-
-
 }
 
 .topShadow {
@@ -53,7 +59,7 @@
     background: -ms-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
-    opacity: 0.6;
+    opacity: 0.2;
 }
 
 #ButtonsArea .shadow {
@@ -61,7 +67,7 @@
     width:100%;
     height:100px;
     top:-100px;
-    opacity: 0.6;
+    opacity: 0.2;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,0.65+100 */
     background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.35))); /* Chrome,Safari4+ */
@@ -77,13 +83,13 @@
 }
 #TotalDisplay {
     height:80px;
-    line-height: 80px;
+    line-height: 65px;
     font-size: 3em;
     text-align: right;
     display: block;
     color: #fff;
     padding: 7px;
-    background-color: #5bacd7;
+    background-color: rgba(91,172,215,0.8);
 }
 #ItemsDisplay {
     height:100%;
@@ -98,6 +104,7 @@
 #ItemsDisplay ul li {
     padding: 9px 9px;
     color: #333;
+    font-family: 'Roboto Mono' ;
 }
 #ItemsDisplay .operationToken {
     color:rgba(0,0,0,0.5);
@@ -122,4 +129,7 @@
 
 *, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Montserrat', sans-serif;
+}
+h1.title {
+    font-family: 'Kaushan Script', cursive !important;
 }

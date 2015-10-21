@@ -55,7 +55,13 @@ var app = angular.module('tally.controllers', [])
 
 })
 
-.controller('CalculatorCtrl', function($scope, $rootScope, Documents) {
+.controller('CalculatorCtrl', function($scope, $rootScope, Documents, $ionicPopover) {
+
+        $ionicPopover.fromTemplateUrl('templates/popover-calc.html', {
+            scope: $scope,
+        }).then(function(popover) {
+            $scope.popover = popover;
+        });
 
         $scope.newNumber = true;
 
@@ -99,7 +105,7 @@ var app = angular.module('tally.controllers', [])
         };
 
         $scope.setOperation = function (op) {
-            if($scope.pendingValue !== "") {
+            if($scope.pendingValue !== "" && !isNaN($scope.pendingValue)) {
                 $scope.operationToken = $scope.operationToken ? $scope.operationToken : '+';
                 $rootScope.items.push({
                     operator: $scope.operationToken,
@@ -124,6 +130,12 @@ var app = angular.module('tally.controllers', [])
             });
 
             console.log('$scope.activeDocument',$scope.activeDocument)
+
+        };
+
+        $scope.clearOutput = function() {
+            $rootScope.output = "";
+            $scope.pendingValue = "";
 
         };
 
